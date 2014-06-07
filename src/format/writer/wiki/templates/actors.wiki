@@ -1,0 +1,7 @@
+{% for actor in project.actors %}h4. {{ actor.identifier}} {{actor.name}}
+
+| *Type:* | {{actor.type|actorTypeToText }} |
+| *Communication:* | {{actor.communication|actorCommunicationToText }} |
+| *Description:* | {{actor.description|itemsToText}} |
+
+{% endfor %}

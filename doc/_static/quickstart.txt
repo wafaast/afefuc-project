@@ -1,0 +1,44 @@
+Quick start
+===========
+
+Flow
+----
+
+#. Create project by choosing ``File -> New``
+#. Fill project properties (Tab: ``Properties``)
+#. Define items required to add use case:
+	* priorities (Tab: ``Priorities``)
+	* goal levels (Tab: ``Goal levels``)
+	* business objects (Tab: ``Business objects``)
+	* business rules (Tab: ``Business rules``)
+	* actors (Tab: ``Actors``)
+#. Add use cases (Tab: ``Use Cases``)
+
+How to add use case?
+----------------------
+
+::
+
+	In order to add a use case the following items ought to be defined:
+		* priorities (Tab: ``Priorities``)
+		* goal levels (Tab: ``Goal levels``)
+		* business objects (Tab: ``Business objects``)
+		* business rules (Tab: ``Business rules``)
+		* actors (Tab: ``Actors``)
+
+#. Click ``Add`` button in tab ``Use Cases``
+#. Provide ``Title`` and ``ID``
+#. Select main actors by clicking ``Select`` button (in order to add more then one actor please use ``Ctrl`` button)
+#. Select other actors by clicking ``Select`` button (in order to add more then one actor please use ``Ctrl`` button)
+#. Select ``Priority`` and ``Goal level`` in tab ``Properties``
+#. Provide brief summary in tab ``Properties``
+#. Provide main scenario and optional events in tab ``Scenario``
+	* Click ``Insert step`` to add new step
+	* Click column on the right of a number to start edit mode
+	* Type description of a step (the following tags are supported: ``@goto`` and ``@bo``)
+#. In order to add an event select step in ``scenario`` and click ``Add event`` button
+	* Provide name of an extension in ``events``
+	* Provide description of a step
+	* Use ``Properties`` button to select type of an extension (``Alternation``, ``Extension``, ``Exception``) and anchor (where an event may occure)
+#. Provide triggers/preconditions/postconditions in tab ``Conditions``
+#. Provided remarks (if required) in in tab ``Properties``

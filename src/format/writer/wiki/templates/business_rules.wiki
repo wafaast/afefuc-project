@@ -1,0 +1,3 @@
+| *ID* | *Definition* |	*Type* | *Dynamism* | *Source* |
+{% for br in project.business_rules %}| {{ br.identifier}} | {{ br.description|itemsToText }} | {{ br.type|businessRuleTypeToText }} | {{ br.dynamism|businessRuleDynamismToText }}| {{ br.source|itemsToText }} |
+{% endfor %}

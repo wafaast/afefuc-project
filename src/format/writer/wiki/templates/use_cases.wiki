@@ -1,0 +1,26 @@
+{% for uc in project.ucspec.usecases %}h4. {{ uc.identifier }} {{ uc.title|itemsToText }}
+
+| *Level:* | {{ uc.goal_level|nameToText }} |
+| *Main actors:* | {{ uc.main_actors|actorsToText }} |
+| *Supporting actors:* | {{ uc.other_actors|actorsToText }}  |
+| *Summary:* | {{ uc.summary|itemsToText }} |
+{% if uc.triggers %}| *Triggers:* | {% for i in uc.triggers %}* {{ i.items|itemsToText }} {% endfor %} |
+{% endif %}
+{% if uc.preconditions %}| *Pre-conditions:* | {% for i in uc.preconditions %}* {{ i.items|itemsToText }}  {% endfor %} |
+{% endif %}
+{% if uc.postconditions %}| *Post-conditions:* | {% for i in uc.postconditions %}* {{ i.items|itemsToText }}  {% endfor %} |
+{% endif %}
+|\2. *Main scenario:*|
+{% for step in uc.scenario.items %}|\2. {{ loop.index0 + 1 }}. {{step.items|itemsToText }} |
+{% endfor %}|\2. *Alternative scenarios and extensions:* |{% for step in uc.scenario.items %}{% set step_id = loop.index0 + 1 %}{% for event in step.events %}{% if event.type != 'exception' %}{% set event_id = loop.index0 + 65 %}
+|\2. {{ step_id }}.{{ event_id|chr }}. {{ event.title|itemsToText }} |
+{% for subs in event.scenario.items %}|\2. {{ step_id }}.{{ event_id|chr }}.{{ loop.index0 + 1 }}. {{ subs.items|itemsToText }} |
+{% endfor %}{% endif %}{% endfor %}{% endfor %}|\2. *Exceptions:* |{% for step in uc.scenario.items %}{% set step_id = loop.index0 + 1 %}{% for event in step.events %}{% if event.type == 'exception' %}{% set event_id = loop.index0 + 65 %}
+|\2. {{ step_id }}.{{ event_id|chr }}. {{ event.title|itemsToText }} |
+{% for subs in event.scenario.items %}|\2. {{ step_id }}.{{ event_id|chr }}.{{ loop.index0 + 1 }}. {{ subs.items|itemsToText }} |
+{% endfor %}{% endif %}{% endfor %}{% endfor %}
+{% if uc.remarks %}
+|\2. *Remarks:*|
+|\2. {{ uc.remarks|itemsToText }}  |
+{% endif %}
+{% endfor %}

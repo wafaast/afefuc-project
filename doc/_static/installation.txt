@@ -1,0 +1,43 @@
+Installation from scratch
+=========================
+
+Linux
+-----
+
+**Debian**::
+
+	$ su
+	# apt-get install python2.7 python-qt4 python-lxml python-jinja2
+	# apt-get install make pyqt4-dev-tools
+	# exit
+	$ cd afefuc
+	$ make
+
+
+Mac OS
+------
+
+Using backports::
+
+	port qt4
+	port py27-pyqt4
+	pip lmxl
+	pip jinja2
+
+Use ``pyuic4`` to generate GUI.
+
+
+MS Windows
+----------
+
+Download:
+	* Python 2.7 (Python + setuptools + pypm is available at http://www.activestate.com/activepython)
+Install:
+	* Python 2.7
+	* PyQT and lxml::
+
+		pypm install pyqt4
+		pypm install lxml
+		pypm install jinja2
+
+Use ``pyuic4`` to generate GUI.

@@ -1,0 +1,1 @@
+{% for term in project.glossary %}{{ term.name }} - {{ term.definition|itemsToText }}{% endfor %}

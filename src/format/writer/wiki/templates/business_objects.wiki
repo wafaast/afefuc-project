@@ -1,0 +1,13 @@
+{% for bo in project.business_objects %}h4. {{ bo.identifier}} {{bo.name|itemsToText}}
+
+{% if bo.attributes %}
+|\3. *Attributes:*|
+|=. Name |=. Type |=. Description|
+{% for attribute in bo.attributes %}|=. {{ attribute.name }} |=. {{ attribute.type|businessObjectTypeToText }} |=. {{ attribute.description|itemsToText }} |
+{% endfor %}{% endif %}
+|*Description:*|\2. {{ bo.description|itemsToText }}|
+{% if bo.state_diagram %}|\3.*State diagram:*|
+|\3. {{ bo.state_diagram }} |
+{% endif %}
+
+{% endfor %}
